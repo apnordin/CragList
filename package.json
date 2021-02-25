@@ -29,22 +29,21 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "bcrypt": "^3.0.2",
+    "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.6.0",
     "connect-mongo": "^2.0.1",
     "cors": "^2.8.5",
-    "dotenv": "^6.2.0",
+    "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
-    "http-proxy-middleware": "^0.19.1",
+    "http-proxy-middleware": "^1.0.6",
     "if-env": "^1.0.4",
     "mongoose": "^5.3.4",
     "morgan": "^1.9.1",
-    "node-pre-gyp": "^0.16.0",
+    "node-pre-gyp": "^0.15.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "prop-types": "^15.7.2",
-    "react-bootstrap": "^1.4.3"
+    "react-bootstrap": "^1.5.0"
   }
 }
