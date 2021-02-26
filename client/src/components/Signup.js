@@ -36,17 +36,13 @@ export default function Signup({ setToken }) {
 
 
   return (
-    <div className="col-sm-6 px-5">
-      <div className="m-4 text-center">
-        <h3>New Users</h3>
-      <hr></hr>
-      </div>
+    <div className="container my-4 px-5 text-center">
+      <h3 className="newusers mb-3">New Users</h3>
       <form onSubmit={handleSignup}>
-        <div className="container mt-3 px-5">
           <div className="row form-group">
             <div className="col" size="12">
               <input
-                className="form-control"
+                className="form-control loginsignup"
                 type="text"
                 placeholder="First Name"
                 name="firstname"
@@ -57,7 +53,7 @@ export default function Signup({ setToken }) {
           <div className="row form-group">
             <div className="col" size="12">
               <input
-                className="form-control"
+                className="form-control loginsignup"
                 type="text"
                 placeholder="Last Name"
                 name="lastname"
@@ -65,12 +61,12 @@ export default function Signup({ setToken }) {
                 />
             </div>
           </div>
-          <div className="row form-group">
+          <div className="row form-group ">
             <div className="col" size="12">
               <input
-                className="form-control"
+                className="form-control loginsignup"
                 type="username"
-                placeholder="username"
+                placeholder="Username"
                 name="username"
                 onChange={e => setUsername(e.target.value)}
                 />
@@ -79,7 +75,7 @@ export default function Signup({ setToken }) {
           <div className="row form-group">
             <div className="col" size="12">
               <input
-                className="form-control"
+                className="form-control loginsignup"
                 type="password"
                 placeholder="Password"
                 name="password"
@@ -87,10 +83,10 @@ export default function Signup({ setToken }) {
                 />
             </div>
           </div>
-          <button className="btn" type="submit">
+          <button className="btn loginsignupbtn" type="submit">
             Sign Up
           </button>
-        </div>
+        
       </form>
     </div>
   );

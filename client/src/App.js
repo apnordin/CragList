@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Wrapper from "./components/Wrapper";
-import Login from "./pages/Login";
+import LoginPage from "./pages/LoginPage";
 // import Dashboard from "./pages/Dashboard"
 import './App.css';
 import useToken from './hooks/useToken';
@@ -14,7 +14,7 @@ function App() {
  
 
   if (!token) {
-    return <Login setToken={setToken} />
+    return <LoginPage setToken={setToken} />
   }
 
   return (
@@ -23,7 +23,7 @@ function App() {
       <div>
         <Wrapper>
           <Route exact path ="/" component={SearchMap} />
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/login" component={LoginPage} />
           {/* <Route path='/searchmap' component={SearchMap} /> */}
           <Route path="/course" component={CoursePage} /> 
         </Wrapper>

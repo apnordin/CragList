@@ -104,7 +104,7 @@ export default function Navbar( { users, setUsers, thisUser }) {
         <span className="navbar-brand mb-0 h1"></span>
                 <div className="nav navbar-right">
             
-           <Dropdown className="mr-3" onClick={getMessages}>
+           <Dropdown className="mr-3 btn-nav" onClick={getMessages}>
                 <Dropdown.Toggle
                     // onClick={getMessages}
                     className="open-button btn-nav"
@@ -124,7 +124,7 @@ export default function Navbar( { users, setUsers, thisUser }) {
             </Dropdown>
 
             <button
-            className="open-button btn-nav mr-3"
+            className="open-button btn btn-nav mr-3"
             onClick={logout}
             >Log Out
             </button>

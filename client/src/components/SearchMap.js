@@ -37,7 +37,7 @@ export default function SearchMap () {
         <div className = "row mt-3">
             <div className = "col-12 mb-3">
                 <h1 className="text-center">
-                    Welcome to Tee Time!
+                    Welcome to CragList!
                 </h1>
             </div>
             <div className = "row mt-3">
@@ -47,10 +47,10 @@ export default function SearchMap () {
                 </div>
                 <div className = "col-5">
                     <p className="mainpagetext">
-                        Use Tee Time to search for your favorite disc golf courses in North Carolina.
+                        Use CragList to search for your favorite climbing crags in North Carolina.
                     </p>
                     <p className="mainpagetext">
-                        Once you have selected a course, you will be taken to that course's main page where you can view course information, use the map to find your way there, view other users' posts about the course, and post your own content.
+                        Once you have selected a crag, you will be taken to that crag's main page where you can view course information, use the map to find your way there, view other users' posts about the crag, and post your own content.
                     </p>
                     <p className="mainpagetext">
                         You can also use the chat function in the navbar to chat live with other users!

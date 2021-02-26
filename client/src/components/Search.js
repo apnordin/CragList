@@ -49,7 +49,7 @@ export default function Search () {
             <div className="d-flex justify-content-end">
                 <form onSubmit={courseSearch} className = "form-inline">
                     <div className="form-group">
-                        <input type="search" className="form-control" id="courseSearchID" placeholder="Course Search" onChange={e => setSearchValue(e.target.value)}/>
+                        <input type="search" className="form-control coursesearchbox" id="courseSearchID" placeholder="Course Search" onChange={e => setSearchValue(e.target.value)}/>
                     </div>
                     <button type="submit" className="btn ml-1">Search</button>
                 </form>
