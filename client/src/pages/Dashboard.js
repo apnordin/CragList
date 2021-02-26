@@ -39,12 +39,13 @@ export default function Dashboard () {
                     Welcome to CragList!
                 </h1>
             </div>
+        </div>
             <div className = "row mt-3">
                 
-                <div className = "col-4">
+                <div className = "col-lg-4">
                     <Search />
                 </div>
-                <div className = "col-8">
+                <div className = "col-lg-8">
                     <p className="mainpagetext">
                         Use CragList to search for your favorite climbing crags in North Carolina.
                     </p>
@@ -55,8 +56,9 @@ export default function Dashboard () {
                         You can also use the chat function in the navbar to chat live with other users!
                     </p>
                 </div>
+
             </div>
-        </div>
+        
         </div>
             </div>
     )

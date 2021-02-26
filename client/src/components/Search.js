@@ -47,10 +47,8 @@ export default function Search () {
 
         return (
             <div>
-                <form onSubmit={courseSearch} className = "form-inline">
-                    <div className="form-group">
-                        <input type="search" className="form-control coursesearchbox" id="courseSearchID" placeholder="Course Search" onChange={e => setSearchValue(e.target.value)}/>
-                    </div>
+                <form onSubmit={courseSearch} className = "form-inline mb-1">
+                    <input type="search" className="form-control coursesearchbox" id="courseSearchID" placeholder="Course Search" onChange={e => setSearchValue(e.target.value)}/>
                     <button type="submit" className="btn ml-1">Search</button>
                 </form>
             </div>
@@ -59,10 +57,10 @@ export default function Search () {
         return (
             <div>
                 <form onSubmit={courseSearch} className = " form-inline">
-                    <div className="form-group">
+                    <div className="form-group mb-1">
                         <input type="search" className=" form-control" id="courseSearchID" placeholder="Course Search" onChange={e => setSearchValue(e.target.value)}/>
+                        <button type="submit" className="btn ml-1">Search</button>
                     </div>
-                    <button type="submit" className="btn ml-1">Search</button>
                 </form>
                 <div className="searchResultList mt-1">
                     {searchResults.map(result => (

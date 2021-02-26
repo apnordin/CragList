@@ -202,6 +202,8 @@ code {
 .coursesearchbox {
   border-color: #909ba3;
   background-color: #3f515c;
+  max-width: 250px;
+  min-width: 200px;
 }
 
 .coursesearchbox::placeholder {
@@ -240,7 +242,7 @@ h3 {
 }
 
 .newCourseBtn {
-  margin-left: -25px;
+  margin-left: -5px;
   background-color: #39bd76;
   height: 42px;
 }

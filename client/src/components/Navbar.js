@@ -1,9 +1,11 @@
 import React, {useState, useEffect } from "react";
+import Modal from 'react-modal';
 import AUTH from "../utils/AUTH";
 import Dropdown from 'react-bootstrap/Dropdown';
 import FormControl from 'react-bootstrap/FormControl';
 import CHATR from "../utils/CHATR";
 import ChatBox from "./ChatBox"
+import AddCrag from "./AddCrag"
 
 export default function Navbar( { users, setUsers, thisUser }) {
     // console.log('THISUSER: ', thisUser.username)
@@ -12,7 +14,15 @@ export default function Navbar( { users, setUsers, thisUser }) {
 
     const [chatpartner, setChatpartner] = useState();
     const [messageList, setMessageList] = useState();
+    const [modalIsOpen, setModalIsOpen] = useState(false);
     
+    const setModalIsOpenToTrue = () => {
+        setModalIsOpen(true)
+    }
+
+    const setModalIsOpenToFalse = () => {
+        setModalIsOpen(false)
+    }
 
     const getUsers = async e => {
 
@@ -61,8 +71,9 @@ export default function Navbar( { users, setUsers, thisUser }) {
         document.getElementById("myForm").style.display = "block";
     }
 
-    const addCrag = () => {
+    const newCrag = () => {
         console.log('addCrag clicked!')
+        setModalIsOpenToTrue();
     }
     
     const logout = () => {
@@ -105,14 +116,20 @@ export default function Navbar( { users, setUsers, thisUser }) {
     
     return(
         
-        <nav className="navbar navdark">
+        <nav className="navbar navbar-expand-sm navdark">
             <div className="container">
                 <span className="navbar-nav">
                     <button
                     className="btn newCourseBtn"
-                    onClick={addCrag}
+                    onClick={newCrag}
                     >Add a Crag
                     </button>
+
+                    <Modal isOpen={modalIsOpen}>
+                        <button onClick={setModalIsOpenToFalse}>x</button>
+                        <AddCrag />
+                    </Modal>
+
                 </span>
                 <div className="nav">
 
