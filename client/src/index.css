@@ -239,6 +239,16 @@ h3 {
   background-color: #1b2730;
 }
 
+.newCourseBtn {
+  margin-left: -25px;
+  background-color: #39bd76;
+  height: 42px;
+}
+
+.logout {
+  margin-right: -12px;
+}
+
 .btn-nav {
   background-color: #1b2730;
   opacity: 0.8;
@@ -253,6 +263,10 @@ h3 {
   background-color: #222f3a;
   box-shadow: 0 0 0 0.1rem rgba(168, 168, 168, 0.5);
 }
+
+/* .right-align {
+  
+} */
 
 .post {
   background-color: rgb(70, 135, 219);

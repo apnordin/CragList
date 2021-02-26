@@ -7,7 +7,7 @@ import PostList from "../components/PostList"
 import Jumbotron from "../components/Jumbotron/Jumbotron"
 import Map from "../components/Map/Map"
 
-export default function CoursePage({courseName}) {
+export default function CragPage({courseName}) {
     
     const [thisUser, setThisUser] = useState([])
     const [postList, setPostList] = useState()

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Search from "./Search";
-// import Map from "./Map";
+import Search from "../components/Search";
 import UserNavbar from "../components/Navbar"
 import AUTH from "../utils/AUTH"
 
-export default function SearchMap () {
+export default function Dashboard () {
 
     const [thisUser, setThisUser] = useState([])
 
@@ -41,11 +40,11 @@ export default function SearchMap () {
                 </h1>
             </div>
             <div className = "row mt-3">
-                {/* <div className="col-1"></div> */}
-                <div className = "col-6">
+                
+                <div className = "col-4">
                     <Search />
                 </div>
-                <div className = "col-5">
+                <div className = "col-8">
                     <p className="mainpagetext">
                         Use CragList to search for your favorite climbing crags in North Carolina.
                     </p>
@@ -56,8 +55,6 @@ export default function SearchMap () {
                         You can also use the chat function in the navbar to chat live with other users!
                     </p>
                 </div>
-                <div className="col-1"></div>
-                {/* <div className="col-1"></div> */}
             </div>
         </div>
         </div>

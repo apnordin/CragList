@@ -40,13 +40,13 @@ export default function Search () {
 
     const handleClick = result => {
         console.log('click ', result)
-        history.push('/course', result)
+        history.push('/crag', result)
     }
 
     if (!searchResults) {
 
         return (
-            <div className="d-flex justify-content-end">
+            <div>
                 <form onSubmit={courseSearch} className = "form-inline">
                     <div className="form-group">
                         <input type="search" className="form-control coursesearchbox" id="courseSearchID" placeholder="Course Search" onChange={e => setSearchValue(e.target.value)}/>
@@ -57,7 +57,7 @@ export default function Search () {
         );
     } else {
         return (
-            <div className="float-right">
+            <div>
                 <form onSubmit={courseSearch} className = " form-inline">
                     <div className="form-group">
                         <input type="search" className=" form-control" id="courseSearchID" placeholder="Course Search" onChange={e => setSearchValue(e.target.value)}/>

@@ -1,12 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Wrapper from "./components/Wrapper";
-import LoginPage from "./pages/LoginPage";
-// import Dashboard from "./pages/Dashboard"
+import Login from "./pages/Login";
 import './App.css';
 import useToken from './hooks/useToken';
-import SearchMap from "./components/SearchMap"
-import CoursePage from "./components/CoursePage";
+import Dashboard from "./pages/Dashboard"
+import CragPage from "./pages/CragPage";
 
 function App() {
 
@@ -14,7 +13,7 @@ function App() {
  
 
   if (!token) {
-    return <LoginPage setToken={setToken} />
+    return <Login setToken={setToken} />
   }
 
   return (
@@ -22,10 +21,9 @@ function App() {
     <Router>
       <div>
         <Wrapper>
-          <Route exact path ="/" component={SearchMap} />
-          <Route exact path="/login" component={LoginPage} />
-          {/* <Route path='/searchmap' component={SearchMap} /> */}
-          <Route path="/course" component={CoursePage} /> 
+          <Route exact path ="/" component={Dashboard} />
+          <Route exact path="/login" component={Login} />
+          <Route path="/crag" component={CragPage} /> 
         </Wrapper>
       </div>
     </Router>

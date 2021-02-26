@@ -61,6 +61,10 @@ export default function Navbar( { users, setUsers, thisUser }) {
         document.getElementById("myForm").style.display = "block";
     }
 
+    const addCrag = () => {
+        console.log('addCrag clicked!')
+    }
+    
     const logout = () => {
         console.log('logout clicked');
         localStorage.clear();
@@ -100,41 +104,52 @@ export default function Navbar( { users, setUsers, thisUser }) {
     
     
     return(
+        
         <nav className="navbar navdark">
-        <span className="navbar-brand mb-0 h1"></span>
-                <div className="nav navbar-right">
-            
-           <Dropdown className="mr-3 btn-nav" onClick={getMessages}>
-                <Dropdown.Toggle
-                    // onClick={getMessages}
-                    className="open-button btn-nav"
-                    // variant="success"
-                    id="dropdown-custom-components"
-                    >
-                    Chat
-                </Dropdown.Toggle>
-                <Dropdown.Menu as={CustomMenu}>
-                    {users.map(result => (
-                        <Dropdown.Item key={result._id}
-                        onClick={() => openForm(result.username)}
-                        >{result.username}
-                        </Dropdown.Item>
-                        ))}
-                </Dropdown.Menu>
-            </Dropdown>
+            <div className="container">
+                <span className="navbar-nav">
+                    <button
+                    className="btn newCourseBtn"
+                    onClick={addCrag}
+                    >Add a Crag
+                    </button>
+                </span>
+                <div className="nav">
 
-            <button
-            className="open-button btn btn-nav mr-3"
-            onClick={logout}
-            >Log Out
-            </button>
-        <ChatBox
-        thisUser={thisUser}
-        chatpartner={chatpartner}
-        messageList={messageList}
-        />
-        </div>
-    </nav>
+
+                    <Dropdown className="mr-3 btn-nav" onClick={getMessages}>
+                            <Dropdown.Toggle
+                                // onClick={getMessages}
+                                className="open-button btn-nav"
+                                // variant="success"
+                                id="dropdown-custom-components"
+                                >
+                                Chat
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu as={CustomMenu}>
+                                {users.map(result => (
+                                    <Dropdown.Item key={result._id}
+                                    onClick={() => openForm(result.username)}
+                                    >{result.username}
+                                    </Dropdown.Item>
+                                    ))}
+                            </Dropdown.Menu>
+                        </Dropdown>
+
+                    <button
+                    className="open-button btn btn-nav logout"
+                    onClick={logout}
+                    >Log Out
+                    </button>
+
+                    <ChatBox
+                    thisUser={thisUser}
+                    chatpartner={chatpartner}
+                    messageList={messageList}
+                    />
+                </div>
+            </div>
+        </nav>
     )
 
 }

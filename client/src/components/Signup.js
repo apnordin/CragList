@@ -36,7 +36,7 @@ export default function Signup({ setToken }) {
 
 
   return (
-    <div className="container my-4 px-5 text-center">
+    <div className="my-4 px-5 text-center">
       <h3 className="newusers mb-3">New Users</h3>
       <form onSubmit={handleSignup}>
           <div className="row form-group">
