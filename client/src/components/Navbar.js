@@ -5,7 +5,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import FormControl from 'react-bootstrap/FormControl';
 import CHATR from "../utils/CHATR";
 import ChatBox from "./ChatBox"
-import AddCrag from "./AddCrag"
+import AddRoute from "./AddRoute"
 
 export default function Navbar( { users, setUsers, thisUser }) {
     // console.log('THISUSER: ', thisUser.username)
@@ -71,9 +71,24 @@ export default function Navbar( { users, setUsers, thisUser }) {
         document.getElementById("myForm").style.display = "block";
     }
 
-    const newCrag = () => {
-        console.log('addCrag clicked!')
+    const newRoute = () => {
         setModalIsOpenToTrue();
+    }
+
+    const customStyles = {
+        content: {
+            top : '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',
+            backgroundColor: '#25333d',
+            width: '50%',
+            height: 'auto',
+            minWidth: '365px',
+            maxHeight: '80%'
+        }
     }
     
     const logout = () => {
@@ -103,8 +118,6 @@ export default function Navbar( { users, setUsers, thisUser }) {
                 <ul className="list-unstyled">
                     {React.Children.toArray(children).filter(
                     (child) =>
-                        // console.log(value),
-                        // console.log('CHILD.props.children: ', child.props.children),
                         !value || child.props.children.includes(value)
                     )}
                 </ul>
@@ -121,13 +134,13 @@ export default function Navbar( { users, setUsers, thisUser }) {
                 <span className="navbar-nav">
                     <button
                     className="btn newCourseBtn"
-                    onClick={newCrag}
-                    >Add a Crag
+                    onClick={newRoute}
+                    >Add a Route
                     </button>
 
-                    <Modal isOpen={modalIsOpen}>
-                        <button onClick={setModalIsOpenToFalse}>x</button>
-                        <AddCrag />
+                    <Modal isOpen={modalIsOpen} style={customStyles} onRequestClose={() => setModalIsOpen(false)}>
+                        <button className="btn close" onClick={setModalIsOpenToFalse}>x</button>
+                        <AddRoute />
                     </Modal>
 
                 </span>

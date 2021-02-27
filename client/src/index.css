@@ -319,7 +319,30 @@ h3 {
   /* font-kerning: none; */
 }
 
+.modaltext {
+  /* padding: 10px; */
+  font-weight: 100;
+  font-size: 14px;
+  color: white;
+  /* font-kerning: none; */
+}
+
+.close {
+  margin-top: -10px;
+  font-weight: 100;
+  font-size: 20px;
+}
+
 h1 {
   font-weight: 100;
+  color: white;
+}
+
+.modalheader {
+  font-weight: 100;
+  color: white;
+}
+
+label {
   color: white;
 }
