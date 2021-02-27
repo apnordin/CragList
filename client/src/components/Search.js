@@ -1,40 +1,40 @@
 import React, { useState, useEffect } from 'react';
-import API from "../utils/API"
+import ROUTE from "../utils/ROUTE"
 import { useHistory } from 'react-router-dom'
 
 export default function Search () {
     const history = useHistory()
 
     const [searchValue, setSearchValue] = useState();
-    const [allCourses, setAllCourses] = useState();
+    const [allRoutes, setAllRoutes] = useState();
     const [searchResults, setSearchResults] = useState();
 
-    const getCourses = async e => {
-        const courses = await API.getAllCourses()
-        setAllCourses(courses.data);
+    const getRoutes = async e => {
+        const routes = await ROUTE.getAllRoutes()
+        setAllRoutes(routes.data);
     }
     
-    const courseSearch = async e => {
+    const routeSearch = async e => {
         e.preventDefault();
         let results = []
         console.log('Search clicked!');
         console.log('search value: ', searchValue)
-        console.log( 'from courseSearch, allcourses: ', allCourses);
-        for (let i = 0; i < allCourses.length; i++) {
-            const lowerCaseCourseNames = allCourses[i].name.toLowerCase();
+        console.log( 'from routeSearch, allroutes: ', allRoutes);
+        for (let i = 0; i < allRoutes.length; i++) {
+            const lowerCaseRouteNames = allRoutes[i].name.toLowerCase();
             // console.log(lowerCaseCourseNames)
-            if (lowerCaseCourseNames.includes(searchValue)) {
+            if (lowerCaseRouteNames.includes(searchValue)) {
                 // console.log('We have an inclusion match: ', allCourses[i].name);
                 // console.log(allCourses[i])
-                results.push(allCourses[i])
+                results.push(allRoutes[i])
             }
         }
-        console.log('!!!!', results)
+        // console.log('!!!!', results)
         setSearchResults(results);
     }
 
     useEffect(() => {
-        getCourses()
+        getRoutes()
         setSearchResults()
     }, [])
 
@@ -47,8 +47,8 @@ export default function Search () {
 
         return (
             <div>
-                <form onSubmit={courseSearch} className = "form-inline mb-1">
-                    <input type="search" className="form-control coursesearchbox" id="courseSearchID" placeholder="Course Search" onChange={e => setSearchValue(e.target.value)}/>
+                <form onSubmit={routeSearch} className = "form-inline mb-1">
+                    <input type="search" className="form-control coursesearchbox" id="courseSearchID" placeholder="Search for a Route" onChange={e => setSearchValue(e.target.value)}/>
                     <button type="submit" className="btn ml-1">Search</button>
                 </form>
             </div>
@@ -56,9 +56,9 @@ export default function Search () {
     } else {
         return (
             <div>
-                <form onSubmit={courseSearch} className = " form-inline">
+                <form onSubmit={routeSearch} className = " form-inline">
                     <div className="form-group mb-1">
-                        <input type="search" className=" form-control" id="courseSearchID" placeholder="Course Search" onChange={e => setSearchValue(e.target.value)}/>
+                        <input type="search" className=" form-control" id="courseSearchID" placeholder="Search for a Route" onChange={e => setSearchValue(e.target.value)}/>
                         <button type="submit" className="btn ml-1">Search</button>
                     </div>
                 </form>

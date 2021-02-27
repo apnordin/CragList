@@ -2,7 +2,7 @@ import React from "react";
 
 export default function PostList ({ postList }) {
 
-    console.log('POSTLIST: ', postList);
+    // console.log('POSTLIST: ', postList);
 
     
     const postListBox = document.getElementById("postListBox");
@@ -14,7 +14,7 @@ export default function PostList ({ postList }) {
     if (postList) {
 
         return (
-            <div className = "postList mt-2" id="postListBox">
+            <div className = "postList" id="postListBox">
                 {postList.map(post => (
                     <div className="post my-2">
                         <div className="postUser">
@@ -29,7 +29,7 @@ export default function PostList ({ postList }) {
     )
     } else {
         return(
-            <div className = "postList">
+            <div>
             </div>
         )
     }

@@ -140,7 +140,7 @@ export default function Navbar( { users, setUsers, thisUser }) {
 
                     <Modal isOpen={modalIsOpen} style={customStyles} onRequestClose={() => setModalIsOpen(false)}>
                         <button className="btn close" onClick={setModalIsOpenToFalse}>x</button>
-                        <AddRoute />
+                        <AddRoute setModalIsOpenToFalse={setModalIsOpenToFalse} />
                     </Modal>
 
                 </span>

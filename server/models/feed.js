@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const feedSchema = new Schema({
-    courseName: {type: String, required: true},
+    routeName: {type: String, required: true},
     posts: { type: Object }
 })
 

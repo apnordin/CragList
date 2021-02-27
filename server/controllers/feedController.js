@@ -3,9 +3,9 @@ const db = require("../models");
 module.exports = {
     getPosts: function(req, res) {
         console.log('===GETPOSTS===')
-        const usableData = req.params.courseName
+        const usableData = req.params.routeName
         const actuallyusableData = JSON.parse(usableData)
-        db.Feed.find({ courseName: actuallyusableData.courseName}, function (err, result) {
+        db.Feed.find({ routeName: actuallyusableData.routeName}, function (err, result) {
             if(err) {
                 res.send(err);
             } else {
@@ -15,15 +15,15 @@ module.exports = {
     },
     newPost: function(req, res) {
         console.log('=====NEWPOST=====')
-        const { courseName } = req.body;
-        db.Feed.findOne( { 'courseName': courseName }, (err, courseMatch) => {
-            if(courseMatch) {
+        const { routeName } = req.body;
+        db.Feed.findOne( { 'routeName': routeName }, (err, routeMatch) => {
+            if(routeMatch) {
                 return;
             }
-            const newCoursePost = new db.Feed({
-                'courseName': courseName
+            const newRoutePost = new db.Feed({
+                'routeName': routeName
             });
-            newCoursePost.save((err, savedPost) => {
+            newRoutePost.save((err, savedPost) => {
                 if(err) return res.json(err);
                 return res.json(savedPost);
             })
@@ -31,10 +31,10 @@ module.exports = {
     },
     addPost: function(req, res) {
         console.log("=======ADDPOST=====")
-        const { courseName, thisPost } = req.body;
-        console.log('COURSENAME: ', courseName);
+        const { routeName, thisPost } = req.body;
+        console.log('ROUTENAME: ', routeName);
         console.log('THIS POST: ', thisPost)
-        db.Feed.findOneAndUpdate({ 'courseName': courseName }, {$push: {posts: thisPost}})
+        db.Feed.findOneAndUpdate({ 'routeName': routeName }, {$push: {posts: thisPost}})
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
     }

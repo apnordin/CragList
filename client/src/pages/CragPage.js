@@ -7,12 +7,12 @@ import PostList from "../components/PostList"
 import Jumbotron from "../components/Jumbotron/Jumbotron"
 import Map from "../components/Map/Map"
 
-export default function CragPage({courseName}) {
+export default function CragPage({routeName}) {
     
     const [thisUser, setThisUser] = useState([])
     const [postList, setPostList] = useState()
     const [users, setUsers] = useState([])
-    console.log('USER: ', thisUser.username)
+    // console.log('USER: ', thisUser.username)
     
     const getUser = async e => {
         const thisUserID = localStorage.token.slice(10,34)
@@ -27,13 +27,13 @@ export default function CragPage({courseName}) {
     const getPosts = async e => {
         const posts = await FEED.getPosts(
             {
-            courseName: name,
+            routeName: name,
         })
 
-        console.log('POSTS: ', posts);
-        console.log('POSTS.DATA', posts.data)
+        // console.log('POSTS: ', posts);
+        // console.log('POSTS.DATA', posts.data)
         for (let i = 0; i< posts.data.length; i++) {
-            if (posts.data[i].courseName === name) {
+            if (posts.data[i].routeName === name) {
                 setPostList(posts.data[i].posts)
             }
         }
@@ -41,7 +41,7 @@ export default function CragPage({courseName}) {
 
     const newOrOpenPost = async e => {
         FEED.newPost({
-            courseName: name
+            routeName: name
         })
     }
 
@@ -49,7 +49,7 @@ export default function CragPage({courseName}) {
         e.preventDefault();
         const post = document.getElementById("postBox").value;
         FEED.addPost({
-            courseName: name,
+            routeName: name,
             thisPost: {
                 user: thisUser.username,
                 text: post
@@ -69,18 +69,18 @@ export default function CragPage({courseName}) {
 
 
     const history = useHistory()
-    console.log('the selected course is ! ', history)
-    const { name, address, difficulty } = history.location.state
+    console.log('the selected route is ! ', history)
+    const { name, type, grade, height, approach, facilities, info, address } = history.location.state
 
     const location = {
         address: history.location.state.address,
-        lng: history.location.state.lng,
+        lng: history.location.state.long,
         lat: history.location.state.lat
     }
 
-    if (postList) {
-        console.log('postlist: ', postList)
-    }
+    // if (postList) {
+    //     // console.log('postlist: ', postList)
+    // }
 
     return (
         <div>
@@ -101,7 +101,6 @@ export default function CragPage({courseName}) {
         </div>
         <div className="row">
             <div className="col-4">
-                <h4>Feed</h4>
                 <div className="form-inline">
                     <input
                         id="postBox"
@@ -126,12 +125,31 @@ export default function CragPage({courseName}) {
             </div>
             <div className="col-8">
                 <Jumbotron>
-                <h3>Course Information</h3>
+                <h4 className="mb-3 mt-0 routeinfoheader">Route Information</h4>
                 <div className="courseInfo">
-                    Address: {address}
-                    <p>Difficulty: {difficulty}</p>
+                    <div className="row">
+                        <div className="col-4">
+                            <span className="infoKey">Type: </span><span className="infoValue">{type}</span><p></p>
+                            <span className="infoKey">Grade: </span> <span className="infoValue">{grade}</span><p></p>
+                            <span className="infoKey">Vertical: </span><span className="infoValue">{height}</span><p></p>
+                        </div>
+                        <div className="col-8">
+                            <span className="infoKey">Approach Info: </span> <span className="infoValue">{approach}</span><p></p>
+                            <span className="infoKey">Facilities: </span><span className="infoValue">{facilities}</span><p></p>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-12">
+                            <span className="infoKey">Address: </span><span className="infoValue">{address}</span><p></p>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-12">
+                            <span className="infoKey">Notes: </span><span className="infoValue">{info}</span><p></p>
+                        </div>
+                    </div>
                 </div>
-                <Map location={location} zoomLevel={17}/>
+                <Map className="mapformatting" location={location} zoomLevel={14}/>
                 </Jumbotron>
                 
             </div>
