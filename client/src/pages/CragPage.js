@@ -92,11 +92,13 @@ export default function CragPage({routeName}) {
             <div className="container">
 
         <div className = "row mt-3 mb-4">
-            <div className = "col-8">
+            <div className = "col-4">
                 <h1>{name}</h1>
             </div>
             <div className="col-4">
-                <button className="mt-2 btn float-right" onClick={() => history.goBack()}>Return to Search</button>
+                <button className="return btn" onClick={() => history.goBack()}>Return to Search</button>
+            </div>
+            <div className="col-4">
             </div>
         </div>
         <div className="row">

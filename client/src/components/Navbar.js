@@ -149,9 +149,7 @@ export default function Navbar( { users, setUsers, thisUser }) {
 
                     <Dropdown className="mr-3 btn-nav" onClick={getMessages}>
                             <Dropdown.Toggle
-                                // onClick={getMessages}
-                                className="open-button btn-nav"
-                                // variant="success"
+                                className="open-button btn-nav dropdownbtn"
                                 id="dropdown-custom-components"
                                 >
                                 Chat

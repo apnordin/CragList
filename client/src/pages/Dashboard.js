@@ -35,7 +35,7 @@ export default function Dashboard () {
 
         <div className = "row mt-3">
             <div className = "col-12 mb-3">
-                <h1 className="text-center">
+                <h1 className="">
                     Welcome to CragList!
                 </h1>
             </div>
