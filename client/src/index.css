@@ -443,3 +443,12 @@ label {
 h4 {
   font-weight: 100;
 }
+
+h2 {
+  color: white;
+  font-weight: 100;
+}
+
+.browse {
+  margin-top: 3px;
+}

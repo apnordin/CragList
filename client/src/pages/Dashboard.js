@@ -42,10 +42,13 @@ export default function Dashboard () {
             <div className="container">
 
         <div className = "row mt-3">
-            <div className = "col-12 mb-3">
-                <h1 className="">
-                    Welcome to CragList!
-                </h1>
+            <div className = "col-4 mb-3">
+                <h2 className="">
+                    Welcome {thisUser.username}!
+                </h2>
+            </div>
+            <div className = "col-8 mb-3">
+                <div className="btn browse">Browse all routes</div>
             </div>
         </div>
             <div className = "row mt-3">
