@@ -56,9 +56,9 @@ export default function Search () {
     } else {
         return (
             <div>
-                <form onSubmit={routeSearch} className = " form-inline">
-                    <div className="form-group mb-1">
-                        <input type="search" className=" form-control" id="courseSearchID" placeholder="Search for a Route" onChange={e => setSearchValue(e.target.value)}/>
+                <form onSubmit={routeSearch} className = "form-inline  mb-1">
+                    <div className="form-group">
+                        <input type="search" className=" form-control coursesearchbox" id="courseSearchID" placeholder="Search for a Route" onChange={e => setSearchValue(e.target.value)}/>
                         <button type="submit" className="btn ml-1">Search</button>
                     </div>
                 </form>

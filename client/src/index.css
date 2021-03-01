@@ -46,12 +46,12 @@ code {
 
 /* The popup form - hidden by default */
 .form-popup {
-  padding: 10px 20px 10px 20px;
+  padding: 10px 15px 10px 15px;
   background-color: #1a242b;
   display: none;
   border-radius: 10px;
   position: fixed;
-  width: 335px;
+  width: 315px;
   bottom: 0;
   right: 15px;
   /* border: 1px solid #ffffff; */
@@ -229,12 +229,15 @@ h3 {
 }
 
 .searchResultItem {
-  background-color: #2b62b4;
+  background-color: #46638f;
   color: white;
   /* font-size: small; */
   margin-top: 5px;
+  margin-left: -4px;
   padding: 5px;
   font-size: 14px;
+  max-width: 250px;
+  min-width: 200px;
 }
 
 .navbar {
@@ -452,3 +455,12 @@ h2 {
 .browse {
   margin-top: 3px;
 }
+
+.noroutes {
+  color: white;
+  font-size: 24px;
+}
+
+/* #messageListBox {
+  background-color: #3f515c;
+} */

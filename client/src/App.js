@@ -6,6 +6,7 @@ import './App.css';
 import useToken from './hooks/useToken';
 import Dashboard from "./pages/Dashboard"
 import CragPage from "./pages/CragPage";
+import AllRoutesPage from "./pages/AllRoutesPage"
 
 function App() {
 
@@ -23,7 +24,8 @@ function App() {
         <Wrapper>
           <Route exact path ="/" component={Dashboard} />
           <Route exact path="/login" component={Login} />
-          <Route path="/crag" component={CragPage} /> 
+          <Route path="/crag" component={CragPage} />
+          <Route path="/allroutes" component={AllRoutesPage} />
         </Wrapper>
       </div>
     </Router>
