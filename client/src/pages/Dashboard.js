@@ -13,8 +13,6 @@ export default function Dashboard () {
     const getRoutes = async e => {
         const routes = await ROUTE.getAllRoutes()
         setAllRoutes(routes.data);
-        
-        console.log('ROUTES.DATA', routes.data);
     }
 
     const getUser = async e => {
@@ -25,7 +23,6 @@ export default function Dashboard () {
         const user = await AUTH.getOneUser(thisUserID)
         // console.log('USER.data:', user.data);
         setThisUser(user.data)
-        console.log('USER.DATA', user.data)
     }
 
     useEffect(() => {

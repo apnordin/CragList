@@ -21,7 +21,7 @@ export default function YourRoutes ({ thisUser, allRoutes }) {
 
     useEffect(() => {
         yourRoutes()
-    })
+    }, [allRoutes])
 
     if (!thisUserRoutes) {
         return (
