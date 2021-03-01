@@ -1,9 +1,9 @@
 import React, {useState, useEffect } from 'react';
-
+import { useHistory } from 'react-router-dom';
 
 export default function YourRoutes ({ thisUser, allRoutes }) {
 
-    console.log(thisUser)
+    const history = useHistory()
 
     const [thisUserRoutes, setThisUserRoutes ] = useState();
 
@@ -15,7 +15,8 @@ export default function YourRoutes ({ thisUser, allRoutes }) {
                     results.push(allRoutes[i])
                 }
             }
-        } console.log('RESULTS: ', results)
+        }
+        // console.log('RESULTS: ', results)
         setThisUserRoutes(results);
     }
 
@@ -23,20 +24,20 @@ export default function YourRoutes ({ thisUser, allRoutes }) {
         yourRoutes()
     }, [allRoutes])
 
-    if (!thisUserRoutes) {
-        return (
-            <div>
-                <h3 className="routeinfoheader">You don't have any routes uploaded. Click on Add a Route in the navbar to get started, or search for other users' routes using the searchbox.</h3>
-            </div>
-        )
-    } else {
+    const handleClick = result => {
+        console.log('click ', result)
+        history.push('/crag', result)
+    }
+
+    if (thisUserRoutes) {
+
         return (
             <div>
                 <h3 className="routeinfoheader">Your Routes: </h3>
                 <div className="row thisUserRoutesList">
                     {thisUserRoutes.map(result => (
-                        <div className="col-12" key={result._id}>
-                            <div className="btn yourRouteItem">
+                        <div className="col-6 mt-2 mb-3" key={result._id}>
+                            <div onClick={() => handleClick(result)} className="btn yourRouteItem">
                                 <div className="yourRouteName">
                                     <h4>{result.name}</h4>
                                 </div>
@@ -53,6 +54,13 @@ export default function YourRoutes ({ thisUser, allRoutes }) {
                         </div>
                     ))}
                 </div>
+            </div>
+        )
+    } else {
+        console.log('NO USER ROUTES')
+        return (
+            <div>
+                <h3 className="routeinfoheader">You don't have any routes uploaded. Click on Add a Route in the navbar to get started, or search for other users' routes using the searchbox.</h3>
             </div>
         )
     }

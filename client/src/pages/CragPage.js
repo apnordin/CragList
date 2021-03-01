@@ -70,7 +70,7 @@ export default function CragPage({routeName}) {
 
     const history = useHistory()
     console.log('the selected route is ! ', history)
-    const { name, type, grade, height, approach, facilities, info, address } = history.location.state
+    const { name, type, grade, height, approach, facilities, info, address, user } = history.location.state
 
     const location = {
         address: history.location.state.address,
@@ -138,17 +138,21 @@ export default function CragPage({routeName}) {
                         <div className="col-8">
                             <span className="infoKey">Approach Info: </span> <span className="infoValue">{approach}</span><p></p>
                             <span className="infoKey">Facilities: </span><span className="infoValue">{facilities}</span><p></p>
+                            <span className="infoKey">Address: </span><span className="infoValue">{address}</span><p></p>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-12">
-                            <span className="infoKey">Address: </span><span className="infoValue">{address}</span><p></p>
+                            <span className="infoKey">Added By: </span><span className="infoValue">{user}</span><p></p>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-12">
                             <span className="infoKey">Notes: </span><span className="infoValue">{info}</span><p></p>
                         </div>
+                    </div>
+                    <div className="row">
+                        
                     </div>
                 </div>
                 <Map className="mapformatting" location={location} zoomLevel={14}/>

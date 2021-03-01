@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import ROUTE from "../utils/ROUTE"
-import { useHistory } from 'react-router-dom'
+import ROUTE from "../utils/ROUTE";
+import { useHistory } from 'react-router-dom';
 
 export default function Search () {
     const history = useHistory()
@@ -39,7 +39,7 @@ export default function Search () {
     }, [])
 
     const handleClick = result => {
-        console.log('click ', result)
+        // console.log('click ', result)
         history.push('/crag', result)
     }
 

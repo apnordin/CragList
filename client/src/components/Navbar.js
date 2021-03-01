@@ -6,11 +6,13 @@ import FormControl from 'react-bootstrap/FormControl';
 import CHATR from "../utils/CHATR";
 import ChatBox from "./ChatBox"
 import AddRoute from "./AddRoute"
+import { useHistory } from 'react-router-dom';
 
 export default function Navbar( { users, setUsers, thisUser }) {
+    const history = useHistory()
     // console.log('THISUSER: ', thisUser.username)
 
-    console.log(thisUser)
+    // console.log(thisUser)
 
     const thisUserName = thisUser.username
 
@@ -94,8 +96,9 @@ export default function Navbar( { users, setUsers, thisUser }) {
     }
     
     const logout = () => {
-        console.log('logout clicked');
+        // console.log('logout clicked');
         localStorage.clear();
+        history.push('/')
         window.location.reload();
     }
 
