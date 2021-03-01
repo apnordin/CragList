@@ -69,7 +69,7 @@ export default function AllRoutesPage () {
                                                 <h4>{result.name}</h4>
                                             </div>
                                             <div className="yourRouteKeyVal">
-                                                Type of Climb: {result.type}
+                                                {result.type}
                                             </div>
                                             <div className="yourRouteKeyVal">
                                                 Grade/Difficulty: {result.grade}
