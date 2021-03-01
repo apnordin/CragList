@@ -5,6 +5,7 @@ import LocationPin from "../LocationPin/LocationPin"
 
 const Map = ({location, zoomLevel}) => {
 
+  const api_key = process.env.REACT_APP_API_KEY
   
   const locationNoAddress = {
     lat: location.lat,
@@ -17,7 +18,7 @@ const Map = ({location, zoomLevel}) => {
       <div className="map">
         <div className="google-map">
           <GoogleMapReact
-            bootstrapURLKeys={{ key: 'AIzaSyCWTc_rhOAdR2t6Gmt6DJ3kBU6sz8fKGvs' }}
+            bootstrapURLKeys={{ key: api_key }}
             defaultCenter={locationNoAddress}
             defaultZoom={zoomLevel}
           >

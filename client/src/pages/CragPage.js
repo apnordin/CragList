@@ -69,7 +69,7 @@ export default function CragPage({routeName}) {
 
 
     const history = useHistory()
-    console.log('the selected route is ! ', history)
+    // console.log('the selected route is ! ', history)
     const { name, type, grade, height, approach, facilities, info, address, user } = history.location.state
 
     const location = {

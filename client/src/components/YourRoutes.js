@@ -25,7 +25,7 @@ export default function YourRoutes ({ thisUser, allRoutes }) {
     }, [allRoutes])
 
     const handleClick = result => {
-        console.log('click ', result)
+        // console.log('click ', result)
         history.push('/crag', result)
     }
 
@@ -57,7 +57,7 @@ export default function YourRoutes ({ thisUser, allRoutes }) {
             </div>
         )
     } else {
-        console.log('NO USER ROUTES')
+        // console.log('NO USER ROUTES')
         return (
             <div>
                 <h3 className="routeinfoheader">You don't have any routes uploaded. Click on Add a Route in the navbar to get started, or search for other users' routes using the searchbox.</h3>
