@@ -10,6 +10,8 @@ import AddRoute from "./AddRoute"
 export default function Navbar( { users, setUsers, thisUser }) {
     // console.log('THISUSER: ', thisUser.username)
 
+    console.log(thisUser)
+
     const thisUserName = thisUser.username
 
     const [chatpartner, setChatpartner] = useState();
@@ -140,7 +142,7 @@ export default function Navbar( { users, setUsers, thisUser }) {
 
                     <Modal isOpen={modalIsOpen} style={customStyles} onRequestClose={() => setModalIsOpen(false)}>
                         <button className="btn close" onClick={setModalIsOpenToFalse}>x</button>
-                        <AddRoute setModalIsOpenToFalse={setModalIsOpenToFalse} />
+                        <AddRoute thisUserName={thisUserName} setModalIsOpenToFalse={setModalIsOpenToFalse} />
                     </Modal>
 
                 </span>

@@ -3,7 +3,7 @@ const db = require("../models");
 module.exports = {
     newOrOpenRoute: function(req, res) {
         console.log('========NEWROUTE======')
-        const { name, type, lat, long, address, grade, height, approach, facilities, info } = req.body;
+        const { name, type, lat, long, address, grade, height, approach, facilities, info, user } = req.body;
         console.log('REQBODY: ', req.body)
         db.Route.findOne({ 'name': name }, (err, routeMatch) => {
             if(routeMatch) {
@@ -19,7 +19,8 @@ module.exports = {
                 'height': height,
                 'approach': approach,
                 'facilities': facilities,
-                'info': info
+                'info': info,
+                'user': user
             });
             newRoute.save((err, savedRoute) => {
                 if (err) return res.json(err);

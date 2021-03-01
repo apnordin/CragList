@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from "react";
 import Search from "../components/Search";
 import UserNavbar from "../components/Navbar"
+import ROUTE from "../utils/ROUTE"
 import AUTH from "../utils/AUTH"
+import YourRoutes from "../components/YourRoutes"
 
 export default function Dashboard () {
 
     const [thisUser, setThisUser] = useState([])
+    const [allRoutes, setAllRoutes] = useState();
+
+    const getRoutes = async e => {
+        const routes = await ROUTE.getAllRoutes()
+        setAllRoutes(routes.data);
+        
+        console.log('ROUTES.DATA', routes.data);
+    }
 
     const getUser = async e => {
         const thisUserID = localStorage.token.slice(10,34)
@@ -15,11 +25,12 @@ export default function Dashboard () {
         const user = await AUTH.getOneUser(thisUserID)
         // console.log('USER.data:', user.data);
         setThisUser(user.data)
+        console.log('USER.DATA', user.data)
     }
-    
 
     useEffect(() => {
         getUser()
+        getRoutes()
     }, [])
 
     const [users, setUsers] = useState([])
@@ -46,7 +57,11 @@ export default function Dashboard () {
                     <Search />
                 </div>
                 <div className = "col-lg-8">
-                    <p className="mainpagetext">
+                    <YourRoutes
+                    thisUser ={thisUser}
+                    allRoutes ={allRoutes}
+                    />
+                    {/* <p className="mainpagetext">
                         Use CragList to search for your favorite climbing crags in North Carolina.
                     </p>
                     <p className="mainpagetext">
@@ -54,7 +69,7 @@ export default function Dashboard () {
                     </p>
                     <p className="mainpagetext">
                         You can also use the chat function in the navbar to chat live with other users!
-                    </p>
+                    </p> */}
                 </div>
 
             </div>

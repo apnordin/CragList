@@ -153,7 +153,6 @@ export default function CragPage({routeName}) {
                 </div>
                 <Map className="mapformatting" location={location} zoomLevel={14}/>
                 </Jumbotron>
-                
             </div>
         </div>
         </div>

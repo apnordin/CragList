@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ROUTE from '../utils/ROUTE';
 
-export default function AddRoute( {setModalIsOpenToFalse }) {
+export default function AddRoute( {setModalIsOpenToFalse, thisUserName }) {
 
     const [routeName, setRouteName] = useState();
     const [routeType, setRouteType] = useState();
@@ -28,7 +28,8 @@ export default function AddRoute( {setModalIsOpenToFalse }) {
         lat: routeLat,
         long: routeLong,
         address: routeAddress,
-        info: routeInfo
+        info: routeInfo,
+        user: thisUserName
       })
         setModalIsOpenToFalse()
     }
