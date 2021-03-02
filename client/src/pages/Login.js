@@ -85,7 +85,7 @@ export default function Login ({ setToken }) {
                         <h3 className="welcomeblurbh3 top">
                             Welcome to CragList, a website for climbers to find for climbing routes anywhere in the world.
                         </h3>
-                        <h3 className="welcomeblurbh3">
+                        <h3 className="welcomeblurbh3 bottom">
                             Add your own routes, search or browse routes added by other users, post on your favorite route's feed, and chat live with other users.
                         </h3>
                     </div>

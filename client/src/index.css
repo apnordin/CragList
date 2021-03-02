@@ -142,12 +142,7 @@ code {
 }
 
 .yosemite {
-  background-image: linear-gradient(
-      #ffffff44 0%,
-      #00000088 25%,
-      #00000088 45%,
-      #ffffff44 100%
-    ),
+  background-image: linear-gradient(#00000088 30%, #ffffff42 100%),
     url("./assets/yosemite.jpg");
   height: 100%;
   width: 100%;
@@ -189,9 +184,9 @@ code {
 
 .welcomeblurb {
   position: absolute;
-  top: 40%;
+  top: 27%;
   transform: translateY(-50%);
-  margin-right: 10%;
+  margin-right: 15%;
   margin-left: 5%;
 }
 
