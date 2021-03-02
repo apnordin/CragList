@@ -36,6 +36,11 @@ export default function AllRoutesPage () {
         history.push("/")
     }
 
+    const goToCragPage = result => {
+        // console.log('click ', result)
+        history.push('/crag', result)
+    }
+
     if (allRoutes) {
 
         return (
@@ -64,7 +69,7 @@ export default function AllRoutesPage () {
                             <div className= "row allRoutesList">
                                 {allRoutes.map(result => (
                                     <div className="col-4 mt-2 mb-3" key={result.id}>
-                                        <div className="btn yourRouteItem">
+                                        <div onClick={() => goToCragPage(result)} className="btn yourRouteItem">
                                             <div className="yourRouteName">
                                                 <h4>{result.name}</h4>
                                             </div>
