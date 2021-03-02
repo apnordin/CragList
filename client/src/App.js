@@ -12,6 +12,7 @@ function App() {
 
   const { token, setToken } = useToken();
  
+  console.log(process.env.REACT_APP_API_KEY)
 
   if (!token) {
     return <Login setToken={setToken} />
