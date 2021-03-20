@@ -29,11 +29,17 @@ Click [here](https://developers.google.com/maps) to get started with Google Maps
 ## Built With
 
 React: JavaScript library
+
 Axios: HTTP client
+
 Express: Web framework
-Mongoose: ODB library
+
+Mongoose: ODM library
+
 Passport: Authentication middleware
+
 Bootstrap and React-Bootstrap: CSS framework
+
 NPM: Dependency management
 
 This website uses Google Maps Platform, see "getting started" for more info.
