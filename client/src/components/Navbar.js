@@ -79,12 +79,16 @@ export default function Navbar( { users, setUsers, thisUser }) {
             // console.log(newMessagesData[i])
 
             for (let i = 0; i < messageList.length; i++) {
+                const chatButton = document.getElementById("alerticon");
                 console.log(newMessagesData[i].chats.length)
                 console.log(messageList[i].chats.length)
                 if (newMessagesData[i].chats.length === messageList[i].chats.length) {
                     console.log('NO NEW MESSAGES');
                 }
-                else console.log('NEW MESSAGE', newMessagesData[i].chats.slice(-1));
+                else {
+                    console.log('NEW MESSAGE', newMessagesData[i].chats.slice(-1));
+                    chatButton.classList.add("redalert")
+                }
             }
             
         }
@@ -203,6 +207,7 @@ export default function Navbar( { users, setUsers, thisUser }) {
                                 id="dropdown-custom-components"
                                 >
                                 Chat
+                            <span id="alerticon"></span>
                             </Dropdown.Toggle>
                             <Dropdown.Menu as={CustomMenu}>
                                 {users.map(result => (
@@ -212,7 +217,7 @@ export default function Navbar( { users, setUsers, thisUser }) {
                                     </Dropdown.Item>
                                     ))}
                             </Dropdown.Menu>
-                        </Dropdown>
+                    </Dropdown>
 
                     <button
                     className="open-button btn btn-nav logout"
