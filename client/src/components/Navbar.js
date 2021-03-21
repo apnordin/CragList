@@ -80,8 +80,10 @@ export default function Navbar( { users, setUsers, thisUser }) {
 
             for (let i = 0; i < messageList.length; i++) {
                 const chatButton = document.getElementById("alerticon");
+
                 console.log(newMessagesData[i].chats.length)
                 console.log(messageList[i].chats.length)
+
                 if (newMessagesData[i].chats.length === messageList[i].chats.length) {
                     console.log('NO NEW MESSAGES');
                 }
@@ -89,14 +91,8 @@ export default function Navbar( { users, setUsers, thisUser }) {
                     console.log('NEW MESSAGE', newMessagesData[i].chats.slice(-1));
                     chatButton.classList.add("redalert")
                 }
-            }
-            
+            }   
         }
-
-
-        // if (newMessages.data === messageList) {
-        //     console.log('no new messages')
-        // }
     }
 
     useEffect(() => {
@@ -110,6 +106,7 @@ export default function Navbar( { users, setUsers, thisUser }) {
     )
 
     const openForm = async (result) => {
+        
         CHATR.newOrOpenChat({
             user: thisUser.username,
             chatPartner: result
@@ -149,6 +146,11 @@ export default function Navbar( { users, setUsers, thisUser }) {
         localStorage.clear();
         history.push('/')
         window.location.reload();
+    }
+
+    const removeAlert = () => {
+        const chatButton = document.getElementById("alerticon");
+        chatButton.classList.remove("redalert")
     }
 
     const CustomMenu = React.forwardRef(
@@ -201,7 +203,7 @@ export default function Navbar( { users, setUsers, thisUser }) {
                 <div className="nav">
 
 
-                    <Dropdown className="mr-3 btn-nav" onClick={getMessages}>
+                    <Dropdown className="mr-3 btn-nav" onClick={() => {getMessages(); removeAlert();}}>
                             <Dropdown.Toggle
                                 className="open-button btn-nav dropdownbtn"
                                 id="dropdown-custom-components"
@@ -211,9 +213,10 @@ export default function Navbar( { users, setUsers, thisUser }) {
                             </Dropdown.Toggle>
                             <Dropdown.Menu as={CustomMenu}>
                                 {users.map(result => (
-                                    <Dropdown.Item key={result._id}
-                                    onClick={() => openForm(result.username)}
-                                    >{result.username}
+                                    <Dropdown.Item
+                                        key={result._id}
+                                        onClick={() => openForm(result.username)}
+                                        >{result.username}
                                     </Dropdown.Item>
                                     ))}
                             </Dropdown.Menu>
