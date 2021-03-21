@@ -54,11 +54,56 @@ export default function Navbar( { users, setUsers, thisUser }) {
         })
 
         setMessageList(messages.data)
+
+        console.log('messages got!', messages.data)
+    }
+
+    
+    useEffect(() => {
+        getUsers()
+        getMessages()
+    }, [thisUser])
+    
+    const checkMessages = async e => {
+        console.log('messageList: ', messageList)
+        const newMessages = await CHATR.getMessages(
+            {
+                user: thisUserName,
+            }
+        )
+        console.log('newMessages: ', newMessages.data)
+        
+        const newMessagesData = newMessages.data
+        
+        for (let i = 0; i < newMessagesData.length; i++) {
+            // console.log(newMessagesData[i])
+
+            for (let i = 0; i < messageList.length; i++) {
+                console.log(newMessagesData[i].chats.length)
+                console.log(messageList[i].chats.length)
+                if (newMessagesData[i].chats.length === messageList[i].chats.length) {
+                    console.log('NO NEW MESSAGES');
+                }
+                else console.log('NEW MESSAGE', newMessagesData[i].chats.slice(-1));
+            }
+            
+        }
+
+
+        // if (newMessages.data === messageList) {
+        //     console.log('no new messages')
+        // }
     }
 
     useEffect(() => {
-        getUsers()
-    }, [])
+        const interval = setInterval(() => {
+
+            checkMessages()
+        }, 5000);
+        return () => clearInterval(interval);
+
+        }, [thisUser, messageList]
+    )
 
     const openForm = async (result) => {
         CHATR.newOrOpenChat({
